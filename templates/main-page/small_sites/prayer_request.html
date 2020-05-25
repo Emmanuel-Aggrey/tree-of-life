@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+\{% load crispy_forms_tags %}
+
+<head>
+  {% block head %}
+
+
+  <title>
+    Tree Of Life|Blog
+  </title>
+
+</head>
+{% endblock head %}
+
+<body>
+
+  {% block body %}
+
+
+
+  <section class="ftco-bible-study">
+    <div class="container-wrap">
+      <div class="col-md-12 wrap">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 d-md-flex">
+              <div class="one-forth ftco-animate">
+                <h3>Who we are</h3>
+                <p>
+                  Tree Of Life is a non Denominational Christ Fellowship program that we
+                  meet to fellowship only on Sunday Evenings from 07:00 pm: 09:00 pm
+                  and mostly dominated by the youth</p>
+              </div>
+              <!-- <div class="one-half d-md-flex align-items-md-center ftco-animate">
+                <div class="countdown-wrap">
+                  <p class="countdown d-flex">
+                    <span id="days"></span>
+                    <span id="hours"></span>
+                    <span id="minutes"></span>
+                    <span id="seconds"></span>
+                  </p>
+                </div>
+                <div class="button">
+                  <p><a href="#" class="btn btn-primary p-3">Events Details</a></p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container">
+
+      <script>
+        $(".alert").alert();
+      </script>
+      {% if messages %}
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          {% for message in messages %}
+
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong class="text-center">{{ message }}</strong>
+
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+      {% endif %}
+      <img class="img-fluid" src="https://www.cemgh.org/_img/prayer-request.jpg" alt="" sizes="" srcset="">
+
+      <div class="ftco-animate">
+        <h3 style="color: rgb(22, 59, 145);">PRAYER SUPPORT </h3>
+        <h4>
+          <b>
+            Prayer is a vital part of life at Tree Of Life. If you would like to be prayed for or submit a prayer
+            request, you can:
+
+          </b> </h4>
+        <ul style="color:rgb(12, 34, 224);">
+          <li>call us at (+233) 244063416;</li>
+          <li>email your prayer request to tof@gmail.com with 'prayer request' on the message line;</li>
+          <li>let any leader know befor meeting time or</li>
+          <li>Talk to Leader</li>
+          <li>NB: <em>you can also send us a private message without entring your name or phone just feel the form
+              below</em></li>
+        </ul>
+        <div class="col ftco-animate">
+          <div class="blog-entry">
+
+            <div class="text p-4 d-block">
+
+              <h3 class="heading">REQUEST FORM</h3>
+              <form method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+
+
+  </section>
+
+  <script>
+    document.getElementById('pageinfo').replaceWith('Accept Christ')
+    // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
+    document.getElementById('save-your-spirit').remove()
+  </script>
+
+  <style>
+    body {
+      background: rgb(2, 0, 36);
+      background: linear-gradient(93deg, rgba(2, 0, 36, 1) 0%, rgba(171, 187, 149, 0.29735644257703087) 40%, rgba(0, 212, 255, 1) 100%);
+    }
+  </style>
+
+  {% endblock body %}
+</body>
+
+</html>

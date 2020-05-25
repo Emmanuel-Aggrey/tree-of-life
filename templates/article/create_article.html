@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+
+
+<head>
+  <title>
+    {% block title %}
+    Tree Of Life|Contact
+    {% endblock title %}
+
+  </title>
+
+</head>
+{% endblock head %}
+
+<body>
+
+  {% block body %}
+
+  <section class="ftco-section contact-section ftco-degree-bg">
+
+    <div class="container bg-light">
+
+
+
+
+
+      {% if form.instance.pk %}
+      <h3 class="text-center" style="font-weight: bolder;"> UPDATE ARTICLE</h3>
+
+      {% else %}
+      <h3 class="text-center" style="font-weight: bolder;"> CREATE A NEW ARTICLE</h3>
+
+      {% endif %}
+
+
+      <div class="row block-9">
+
+
+        <div class="pr-md-5">
+          <form id="" class="dropzone" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+
+            <input type="submit" value="Post Article" class="btn btn-primary py-3 px-5">
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    id_title = document.getElementById('id_title').value
+
+    if (id_title) {
+      document.getElementById('pageinfo').replaceWith(`Udate Article: ${id_title}`)
+
+    } else {
+      document.getElementById('pageinfo').replaceWith('Add A new Article')
+
+    }
+    // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
+    document.getElementById('save-your-spirit').remove()
+  </script>
+
+
+  <script src="{% static 'js/dropzone.js' %}"></script>
+  <script src="{% static 'css/dropzone.css' %}"></script>
+
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+
+
+  {% endblock body %}
+</body>
+
+</html>

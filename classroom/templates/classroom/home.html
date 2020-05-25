@@ -1,0 +1,21 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> -->
+
+  <h2>Welcome to Tree of Life School! <span class="icon-emo-happy"></span></h2>
+  <p class="lead">
+    If you already have an account, go ahead and <a href="{% url 'login' %}">log in</a>. If you are new to tree of life school, get started
+    by creating a <a href="{% url 'student_signup' %}">Member account</a> or a <a href="{% url 'teacher_signup' %}">Leader account</a>.
+  </p>
+  <hr>
+  <h3>What's this about?</h3>
+  <p>
+    In this application, users can sign up as a Member or a Leader. Leaders can create quizzes and Members answers them
+   <p class="text-danger">disclaimar:
+    <em>    restrictions will be enfored if deployed
+    </em>
+    </p>
+  </p>
+  
+{% endblock %}

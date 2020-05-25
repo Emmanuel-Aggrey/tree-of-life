@@ -1,0 +1,62 @@
+ {% load static %}
+ {% if not user.group and user.is_authenticated %}
+ <p class="text-danger text-center" title="you have registed as a member but not assinged aa group">please talk to any leader to assign you a group Thank you</p>
+ {% endif %}
+ 	<p></p>
+ <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+
+	    <div class="container">
+	      <a class="navbar-brand" href="{% url 'tof_app:home' %}"><i class="flaticon-cross text-success"></i> <span class="">Tree</span> <span>Of Life 
+		  {% if user.group %}|{{request.user.group}}{% endif %}
+		  </span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="{% url 'tof_app:home' %}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{% url 'tof_app:about' %}" class="nav-link">About</a></li>
+	          <!-- <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li> -->
+	          <!-- <li class="nav-item"><a href="sermons.html" class="nav-link">Sermons</a></li> -->
+	          <li class="nav-item"><a href="{% url 'tof_app:blog' %}" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{% url 'tof_app:contact' %}" class="nav-link">Contact</a></li>
+
+		 <li class="btn btn-danger btn-outline-danger "><a href="{% url 'tof_app:donate' %}" class="nav-link">DONATE</a></li>        
+		 
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+<style>
+
+.btn:hover{
+color:white;
+}
+</style>
+<!-- top image start -->
+    <section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url({% static 'images/bg_1.jpg' %});  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+
+			<div class="overlay js-fullheight"></div>
+			<a class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=5m--ptwd_iI',containment:'#home', showControls:false, autoPlay:true, loop:true, mute:false, startAt:0, opacity:1, quality:'default'}"></a>
+			<div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><div  id="pageinfo">OBEDIENCE  <strong>AND</strong> SELF DENIAL</div></h1>
+            <p id="save-your-spirit" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary btn-outline-white px-4 py-3">WELCOME</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- top image end  -->
+<!--event date start -->
+	
+{% block bibleStudy %}
+  
+{% endblock bibleStudy %}
+<!-- event date end -->
+

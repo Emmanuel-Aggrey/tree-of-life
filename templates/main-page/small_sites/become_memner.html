@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    {% block head %}
+
+
+    <title>
+        Tree Of Life|Become A Member
+    </title>
+
+</head>
+{% endblock head %}
+
+<body>
+
+    {% block body %}
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+
+    <section class="ftco-bible-study">
+        <div class="container-wrap">
+            <div class="col-md-12 wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 d-md-flex">
+                            <div class="one-forth ftco-animate">
+                                <h3>Who we are</h3>
+                                <p>
+                                    Tree Of Life is a non Denominational Christ Fellowship program that we
+                                    meet to fellowship only on Sunday Evenings from 07:00 pm: 09:00 pm
+                                    and mostly dominated by the youth</p>
+                            </div>
+                            <!-- <div class="one-half d-md-flex align-items-md-center ftco-animate">
+                                <div class="countdown-wrap">
+                                    <p class="countdown d-flex">
+                                        <span id="days"></span>
+                                        <span id="hours"></span>
+                                        <span id="minutes"></span>
+                                        <span id="seconds"></span>
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <p><a href="#" class="btn btn-primary p-3">Events Details</a></p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col ftco-animate">
+                    <div class="blog-entry">
+                        <!-- <a href="blog-single.html" class="block-20 img-fluid" style="background-image: url();"> -->
+                        </a>
+                        <img class="img-fluid block-20" src="https://www.cemgh.org/_img/become-a-member.jpg"
+                            alt="become-a-member" sizes="" srcset="">
+                        <div class="text p-4 d-block">
+                            <div class="meta mb-3">
+
+                                <h2 style="color: rgb(22, 59, 145);">BECOME A MEMBER</h2>
+                            </div>
+                            <h3 class="heading" style="color: #674B95;">
+                                <p>We all want to feel that we are a part of something bigger than ourselves. </p>
+                                <p>Psalm 92:12-13 (NIV) says: The righteous will flourish like a palm tree, they will
+                                    grow like a cedar of
+                                    Lebanon; planted in the house of the LORD, they will flourish in the courts of our
+                                    God.</p>
+                                <p>Ephesians 2:19 (LB) says: Now you are no longer strangers to God and foreigners to
+                                    heaven, but you are
+                                    members of God’s very own family, citizen’s of God’s country, and you belong in
+                                    God’s household with every other Christian. The Message version says: You belong
+                                    here... God is building a home. He's using us all—irrespective of how we got here—in
+                                    what He is building.</p>
+                                <p>
+                                    Ephesians 1:20b (MSG) says: The church, you see, is not peripheral to the world; the
+                                    world is peripheral to the church. The church is Christ's body, in which He speaks
+                                    and acts,
+                                    by which He fills everything with His presence. We believe that the local church is
+                                    the hope of the world. Becoming a member of Oasis is not only about belonging to a
+                                    church but discovering how you can make a difference in your world.
+                                </p>
+
+                                <p>
+                                    <p><b> MEMBERSHIP</b> </p>
+                                    We have a two groups of Genesis & Revelation you will be assigned to one after you
+                                    register
+                                    on this page and have become a member of this wonderful non denominational
+                                    Fellowship
+                                    I promise you, you will gladly be welcomed.
+                                    <br> <span><b>register for free</b></span>
+
+                                    <ul class="mx-4">
+                                        <li>
+                                            <a class="" href="{% url 'tof_app:register-member' %}"><u>as
+                                                    member</u></a>
+                                        </li>
+                                        <li>
+                                            <a class="" href="{% url 'tof_app:register-leader' %}"><u>as
+                                                    leader</u></a>
+                                        </li>
+                                    </ul>
+                                    <button id="whysignup" class="btn text-info">Why register ?</button> <br>
+                                    <span id="member" class="text-muted u">to assign you a group as said above and also become part of our school
+                                        
+                                    </span>
+                                </p>
+                                <p>
+                                    We will be annoucing more about this as the time approaches. Meanwhile,
+                                    if you have any futher questions, please email <b>tof@gmail.com</b> or call
+                                    <b>0244063416</b>.
+
+
+                                </p>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('pageinfo').replaceWith('Become A Menber')
+        // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
+        document.getElementById('save-your-spirit').remove()
+    </script>
+
+    <style>
+        body {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(93deg, rgba(2, 0, 36, 1) 0%, rgba(171, 187, 149, 0.29735644257703087) 40%, rgba(0, 212, 255, 1) 100%);
+        }
+
+       
+
+        ul:hover {
+            font-weight: bolder;
+        }
+
+        #whysignup {
+            cursor: pointer;
+        }
+
+        #member {
+            color: #000;
+        }
+    </style>
+
+    <script>
+        $("#member").fadeOut()
+        $("#whysignup").click(function () {
+            $('#member').toggle()
+        });
+    </script>
+
+
+    {% endblock body %}
+</body>
+
+</html>

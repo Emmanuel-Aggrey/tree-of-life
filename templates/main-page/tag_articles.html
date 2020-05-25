@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_pagination %}
+
+
+<head>
+    {% block head %}
+
+
+    <title>
+        Tree Of Life|{{article_tag}}
+    </title>
+
+</head>
+{% endblock head %}
+
+<body>
+
+
+    {% block body %}
+
+
+
+    <section class="ftco-bible-study">
+        <div class="container-wrap">
+            <div class="col-md-12 wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 d-md-flex">
+                            <div class="one-forth ftco-animate">
+                                <h3>Who we are</h3>
+                                <p>
+                                    Tree Of Life is a non Denominational Christ Fellowship program that we
+                                    meet to fellowship only on Sunday Evenings from 07:00 pm: 09:00 pm
+                                    and mostly dominated by the youth</p>
+                            </div>
+                            <div class="one-half d-md-flex align-items-md-center ftco-animate">
+                                <!-- <div class="countdown-wrap">
+                                    <p class="countdown d-flex">
+                                        <span id="days"></span>
+                                        <span id="hours"></span>
+                                        <span id="minutes"></span>
+                                        <span id="seconds"></span>
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <p><a href="#" class="btn btn-primary p-3">Events Details</a></p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                {% for articles in article %}
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry" data-aos-delay="100">
+                        {% if articles.image %}
+                        <a href="{{articles.get_absolute_url}}" class="block-20"
+                            style="background-image: url({{articles.image.url}});">
+                        </a>
+                        {% endif %}
+                        <div class="text p-4">
+                            <div class="meta mb-3">
+                                <div>{{ articles.date_updated|date:"DATE_FORMAT" }}</div>
+                                <!-- <div>Admin</div> -->
+                                <div class="meta-chat"><span class="icon-eye"></span> {{articles.total_views}}</div>
+                            </div>
+                            <h3 class="heading"><a href="{{articles.get_absolute_url}}">{{articles.title}}</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </section>
+
+    <script>
+        const tag = '{{article_tag}}'
+        document.getElementById('pageinfo').replaceWith(`Tag:${tag}`)
+        // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
+        document.getElementById('save-your-spirit').remove()
+    </script>
+
+
+
+    {% endblock body %}
+</body>
+
+</html>

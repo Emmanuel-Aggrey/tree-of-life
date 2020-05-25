@@ -1,0 +1,24 @@
+{% extends 'base1.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8 col-sm-10 col-12">
+      <h2>Sign up as a <span id="user_type">{{ user_type }}</span></h2>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('hint_id_password1').remove()
+   
+  </script>
+
+
+{% endblock %}

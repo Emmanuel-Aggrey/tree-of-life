@@ -1,0 +1,10 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+  <h2>Sign up for a free account</h2>
+  <p class="lead">Select below the type of account you want to create  <br> <em class="text-danger">NB:this is a testing app and this feature would change soon</em></p>
+ <div>
+  <a href="{% url 'student_signup' %}" class="btn btn-student btn-lg" role="button">I'm a Member</a>
+  <a href="{% url 'teacher_signup' %}" class="btn btn-teacher btn-lg" role="button">I'm a Leader</a>
+ </div>
+{% endblock %}

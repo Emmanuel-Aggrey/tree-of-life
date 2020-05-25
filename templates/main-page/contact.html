@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+
+<head>
+  <title>
+    {% block title %}
+    Tree Of Life|Contact
+    {% endblock title %}
+
+  </title>
+
+</head>
+{% endblock head %}
+
+<body>
+
+  {% block body %}
+
+  <section class="ftco-section contact-section ftco-degree-bg">
+    <div class="container bg-light">
+      <div class="row d-flex mb-5 contact-info">
+        <div class="col-md-12 mb-4">
+          <h2 class="h4">Contact Information</h2>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-md-3">
+          <p><span>Address:</span> Mobole Afienya Dodowa Road
+          </p>
+        </div>
+        <div class="col-md-3">
+          <p><span>Phone:</span> <a href="tel:+233243118088
+">+233243118088
+            </a></p>
+        </div>
+        <div class="col-md-3">
+          <p><span>Email:</span> <a href="mailto:	info@tof.com
+"> info@tof.com
+            </a></p>
+        </div>
+        <div class="col-md-3">
+          <p><span>Website</span> <a href="#">tof.com</a></p>
+        </div>
+      </div>
+      <p>
+
+        <b>
+
+          You will be welcomed with a warm greeting when you call and a smile when you come visit.
+          To schedule an appointment with a pastor or any of our staff members, please contact through the numbers
+          above.
+          You are warmly welcomed.
+        </b>
+
+      </p>
+      NB: <em>WE ONLY MEET ON SUNDAYS otherwise a program</em>
+
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          {% comment %} <form action="#">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="form-group">
+              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+            </div>
+          </form> {% endcomment %}
+
+        </div>
+
+        <div class="col-md-6" id="map"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    document.getElementById('pageinfo').replaceWith('Contact')
+    // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
+    document.getElementById('save-your-spirit').remove()
+  </script>
+  {% endblock body %}
+</body>
+
+</html>
