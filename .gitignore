@@ -10,3 +10,5 @@ db.sqlite3
 /db.sqlite3
 *.sqlite3 
 .env
+
+vscode://vscode.github-authentication/did-authenticate?windowId=1&code=19acd5cb519cf0a15e5b&state=f6c48ef8-b007-4223-9350-f15bf3730eed
