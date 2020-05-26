@@ -1,13 +1,15 @@
 from django.urls import path
-from .import views
+
+from . import views
+
 # views.sitemap(request, sitemaps, section=None, template_name='sitemap.xml', content_type='application/xml')
 
 app_name = 'tof_app'
 urlpatterns = [
     # path('',Templateview.as_view()),
-    path('', views.vi, name='home'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
+    path('', views.HomeView.as_view(), name='home'),
+    path('about/', views.AboutView.as_view(), name='about'),
+    path('contact/', views.ContactView.as_view(), name='contact'),
 
     path('blog/', views.BlogView.as_view(), name='blog'),
     path('createarticle/',views.CreateArtcle.as_view(),name='createarticle'),
@@ -26,5 +28,8 @@ urlpatterns = [
     path('register-member/',views.MemberSignUpView.as_view(),name='register-member'),
     path('register-leader/',views.LeaderSignUpView.as_view(),name='register-leader'),
 
+    # Events
+    path('events/',views.CreateEventView.as_view(),name='create-event'),
+    path('update-event/<int:pk>/',views.UpdateEventView.as_view(),name='update-event'),
 
 ]

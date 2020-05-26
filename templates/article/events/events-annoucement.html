@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+
+
+<head>
+  <title>
+    {% block title %}
+    Tree Of Life|Contact
+    {% endblock title %}
+
+  </title>
+
+</head>
+{% endblock head %}
+
+<body>
+
+  {% block body %}
+
+  <section class="ftco-section contact-section ftco-degree-bg">
+
+    <div class="container bg-light">
+
+
+
+
+
+      {% if form.instance.pk %}
+      <h3 class="text-center" style="font-weight: bolder;"> UPDATE EVENT/ANOUCEMENT</h3>
+
+      {% else %}
+      <h3 class="text-center" style="font-weight: bolder;"> CREATE  A NEW EVENT/ANOUCEMENT</h3>
+
+      {% endif %}
+       
+      {% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+      <div class="block-9" style="justify-content:center ;">
+
+
+        <div class="">
+          <form id="" class="dropzone" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+
+            <input type="submit" value="submit" class="btn btn-primary py-3 px-5">
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+   
+    // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
+    document.getElementById('save-your-spirit').remove()
+  </script>
+
+
+  {% endblock body %}
+</body>
+
+</html>

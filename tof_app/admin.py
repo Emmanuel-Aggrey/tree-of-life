@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, AcceptChrist, PrayerRequest
+from .models import Article, AcceptChrist, PrayerRequest,Event
 # Register your models here.
 
 
@@ -44,3 +44,12 @@ class AcceptChristAdmin(admin.ModelAdmin):
 
 
 admin.site.register(AcceptChrist, AcceptChristAdmin)
+
+
+class EventsAdmin(admin.ModelAdmin):
+    list_display = ['event_type','name','time','date','active']
+    list_editable = ['active']
+    list_filter = ['date_updated','date_add','active']
+    search_fields = ['name']
+
+admin.site.register(Event,EventsAdmin)

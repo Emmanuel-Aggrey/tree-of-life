@@ -12,6 +12,8 @@
             </div>
           {% if user.is_leader %}
                       <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:createarticle' %}">Create Article</a></div>
+                                            <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:create-event' %}">Create Event/Anoucement</a></div>
+
                       <hr class="bg-white">
           {% endif %}
           </div>

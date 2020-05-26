@@ -16,7 +16,7 @@ class ChurchGroup(models.Model):
 class User(AbstractUser,BaseModel):
     is_member = models.BooleanField('is member',default=False)
     is_leader = models.BooleanField('is leader',default=False)
-    can_participate = models.BooleanField(default=False)
+    can_participate = models.BooleanField(default=True)
     
     group = models.ForeignKey(ChurchGroup,on_delete=models.DO_NOTHING,blank=True, null=True)
 
@@ -70,7 +70,7 @@ class Student(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     quizzes = models.ManyToManyField(Quiz, through='TakenQuiz')
     #available topic(s)*
-    interests = models.ManyToManyField(Subject, related_name='interested_students',help_text='available topics',verbose_name='available topic(s)')
+    # interests = models.ManyToManyField(Subject, related_name='interested_students',help_text='available topics',verbose_name='available topic(s)',blank=True)
 
     def get_unanswered_questions(self, quiz):
         answered_questions = self.quiz_answers \

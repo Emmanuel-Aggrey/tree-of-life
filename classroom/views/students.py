@@ -52,10 +52,11 @@ class QuizListView(ListView):
 
     def get_queryset(self):
         student = self.request.user.student
-        student_interests = student.interests.values_list('pk', flat=True)
+        # student_interests = student.interests.values_list('pk', flat=True)
         taken_quizzes = student.quizzes.values_list('pk', flat=True)
         # place (~) befor Q to nagate the statement
-        queryset = Quiz.objects.filter(Q(subject__in=student_interests)&Q(every_one=self.request.user.can_participate)&Q(active=True)) \
+        # subject__in=student_interests
+        queryset = Quiz.objects.filter(Q(every_one=self.request.user.can_participate)&Q(active=True)) \
             .exclude(pk__in=taken_quizzes) \
             .annotate(questions_count=Count('questions')) \
             .filter(questions_count__gt=0)

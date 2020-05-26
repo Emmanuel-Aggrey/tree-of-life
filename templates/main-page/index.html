@@ -34,19 +34,24 @@
                   and mostly dominated by the youth
                 </p>
               </div>
-              <!-- <div class="one-half d-md-flex align-items-md-center ftco-animate">
+              <div class="one-half d-md-flex align-items-md-center ftco-animate">
                 <div class="countdown-wrap">
                   <p class="countdown d-flex">
-                    <span id="days"></span>
-                    <span id="hours"></span>
-                    <span id="minutes"></span>
-                    <span id="seconds"></span>
+                    <h2 class="text-light" style="margin-left: 10%;"> Annoucements</h2>
+                    <ul class="">
+                      {% for anoycements in objects.anoycements|slice:'2' %}
+                      <li class="text-light mx-4">{{anoycements.name}} 
+                        {% if user.is_leader %}
+                        <a title="edit" class="fa fa-pencil" href="{% url 'tof_app:update-event' anoycements.pk %}"></a>
+                        {% endif %}
+                      </li>
+                     
+                      {% endfor %}
+                    </ul>
                   </p>
                 </div>
-                <div class="button">
-                  <p><a href="#" class="btn btn-primary p-3">Events Details</a></p>
-                </div>
-              </div> -->
+
+              </div>
             </div>
           </div>
         </div>
@@ -84,16 +89,40 @@
     </div>
   </section>
 
+
   <section class="ftco-section">
     <div class="container">
-      <!-- <div class="row justify-content-center mb-5 pb-5">
+      <div class="row justify-content-center mb-5 pb-5">
         <div class="col-md-6 text-center heading-section ftco-animate">
-          <span class="subheading">Our Services</span>
-          <h2 class="mb-4">Giving light to someone</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-            blind texts. Separated they live in</p>
+
+          <h2 class="mb-4" style="color: #24304D;">UPCOMING EVENTS</h2>
+         <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <th>Name</th>
+              <th>Time</th>
+              <th>Date</th>
+              {% if user.is_leader %}
+              <th>edit</th>
+              {% endif %}
+            </thead>
+            <tbody>
+              {% for events in  objects.events %}
+              <tr>
+                <td>{{events.name}}</td>
+                <td>{{events.time}}</td>
+                <td>{{events.date}}</td>
+                {% if user.is_leader %}
+                  <td><a title="edit" class="fa fa-pencil" href="{% url 'tof_app:update-event' events.pk %}"></a></td>
+                {% endif %}
+              <tr>
+                {% endfor %}
+            </tbody>
+          </table>
+
+         </div>
         </div>
-      </div> -->
+      </div>
       <div class="row">
         <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
           <a title="become a member" href="{% url 'tof_app:become-member' %}">

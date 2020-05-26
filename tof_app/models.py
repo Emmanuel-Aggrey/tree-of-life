@@ -4,6 +4,7 @@ from django.conf import settings
 from taggit.managers import TaggableManager
 from ckeditor.fields import RichTextField
 from django.shortcuts import reverse
+from django.utils import  timezone
 # Create your models here.
 
 
@@ -90,3 +91,19 @@ class PrayerRequest(BaseModel):
     def get_absolute_url(self):
 
         return reverse('tof_app:prayer-request')
+
+class Event(BaseModel):
+    choice = [
+        ['event','Event'],
+        ['anoycement','Anoucement'],
+    ]
+    event_type = models.CharField(max_length=15,choices=choice,default='event')
+    name = models.CharField(max_length=200)
+    time = models.TimeField(default=timezone.now,blank=True, null=True)
+    date = models.DateField(default=timezone.now,blank=True, null=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return '{}:{}'.format(self.event_type,self.name)
+    
+

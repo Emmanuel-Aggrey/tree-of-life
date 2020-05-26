@@ -1,1 +1,1 @@
-# django-blog
+#church website made with django

@@ -89,12 +89,18 @@
 
                                 <p>
                                     <p><b> MEMBERSHIP</b> </p>
-                                    We have a two groups of Genesis & Revelation you will be assigned to one after you
+                                    We have a two groups,Genesis & Revelation <span class="text-monospace text-info" id="why">(why groups)</span>
+                                    <small id="reason" class="text-justify"> to compete amoung ourselves in terms of Games,Quizzes etc.</small>
+                                    you will be assigned to one after you
                                     register
                                     on this page and have become a member of this wonderful non denominational
                                     Fellowship
                                     I promise you, you will gladly be welcomed.
-                                    <br> <span><b>register for free</b></span>
+                                    {% if user.is_authenticated %}
+                                    <p>you are a member ({{user}})</p>
+                                    {% else %}
+                                     <br> <span><b>register for free</b></span>
+                    
 
                                     <ul class="mx-4">
                                         <li>
@@ -107,14 +113,16 @@
                                         </li>
                                     </ul>
                                     <button id="whysignup" class="btn text-info">Why register ?</button> <br>
+                                    {% endif %}
+                                   
                                     <span id="member" class="text-muted u">to assign you a group as said above and also become part of our school
                                         
                                     </span>
                                 </p>
-                                <p>
+                                <small>
                                     We will be annoucing more about this as the time approaches. Meanwhile,
                                     if you have any futher questions, please email <b>tof@gmail.com</b> or call
-                                    <b>0244063416</b>.
+                                </small>0244063416</b>.
 
 
                                 </p>
@@ -133,7 +141,7 @@
     </section>
 
     <script>
-        document.getElementById('pageinfo').replaceWith('Become A Menber')
+        document.getElementById('pageinfo').replaceWith('Become A Member')
         // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
         document.getElementById('save-your-spirit').remove()
     </script>
@@ -150,11 +158,14 @@
             font-weight: bolder;
         }
 
-        #whysignup {
+        #whysignup{
+            cursor: pointer;
+        }
+        #why{
             cursor: pointer;
         }
 
-        #member {
+        #member,#reason {
             color: #000;
         }
     </style>
@@ -163,6 +174,12 @@
         $("#member").fadeOut()
         $("#whysignup").click(function () {
             $('#member').toggle()
+        });
+
+        $("#reason").fadeOut()
+        $("#why").click(function () {
+        
+            $('#reason').toggle()
         });
     </script>
 

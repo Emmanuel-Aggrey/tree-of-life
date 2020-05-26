@@ -1,8 +1,8 @@
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import get_object_or_404, render,redirect
-from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import (CreateView, FormView, ListView, TemplateView,
                                   UpdateView)
@@ -10,22 +10,36 @@ from django.views.generic import (CreateView, FormView, ListView, TemplateView,
 from classroom.decorators import teacher_required
 from classroom.forms import StudentSignUpForm, TeacherSignUpForm, User
 
-from .forms import ArticleForm
-from .models import AcceptChrist, Article, PrayerRequest
+from .forms import ArticleForm, EventForm
+from .models import AcceptChrist, Article, Event, PrayerRequest
 
 # Create your views here.
 
 
-def vi(request):
-    return render(request, 'main-page/index.html')
+class HomeView(ListView):
+    # queryset = Event.objects.filter(active=True)
+    context_object_name = 'objects'
+    template_name = 'main-page/index.html'
+
+    def get_queryset(self):
+        queryset = Event.objects.filter(active=True)
+
+        queryset = {
+            'anoycements': queryset.filter(event_type='anoycement'),
+            'events': queryset.filter(event_type='event'),
+
+        }
+
+        return queryset
 
 
-def about(request):
-    return render(request, 'main-page/about.html')
+class AboutView(TemplateView):
+    template_name = 'main-page/about.html'
 
 
-def contact(request):
-    return render(request, 'main-page/contact.html')
+class ContactView(TemplateView):
+    template_name = 'main-page/contact.html'
+    # return render(request, '')
 
 
 class BlogView(ListView):
@@ -123,14 +137,13 @@ class MemberSignUpView(CreateView):
     template_name = 'member_register/register_member.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['user_type'] = 'Member'#student
+        kwargs['user_type'] = 'Member'  # student
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
         return redirect('tof_app:home')
-
 
 
 class LeaderSignUpView(CreateView):
@@ -139,10 +152,27 @@ class LeaderSignUpView(CreateView):
     template_name = 'member_register/register_member.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['user_type'] = 'Leader' #teacher
+        kwargs['user_type'] = 'Leader'  # teacher
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
         return redirect('tof_app:home')
+
+
+class CreateEventView(SuccessMessageMixin, CreateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'article/events/events-annoucement.html'
+    success_url = reverse_lazy('tof_app:create-event')
+    success_message = 'created with success'
+
+
+class UpdateEventView(SuccessMessageMixin, UpdateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'article/events/events-annoucement.html'
+    success_message = 'updated with success'
+    def get_success_url(self):
+        return reverse('tof_app:update-event', kwargs={'pk': self.object.pk})
