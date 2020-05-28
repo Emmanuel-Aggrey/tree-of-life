@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+
 from django.contrib.messages import constants as messages
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -101,9 +102,9 @@ CSRF_COOKIE_SECURE =True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tree-of-life',
-        'USER': 'tree_of_life',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'treeoflife',
+        'USER': 'aggrey',
         'PASSWORD': 'christme',
         'HOST': 'localhost',
         'PORT': '',
