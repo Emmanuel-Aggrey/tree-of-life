@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
-
+from django.contrib.auth.models import  Group
 from classroom.models import (Answer, Question, Student, StudentAnswer,
                               Subject, User)
 
@@ -14,8 +14,11 @@ class TeacherSignUpForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_leader = True
+        user.is_staff = True
+        auth_group = Group.objects.get(name='Leaders')
         if commit:
             user.save()
+            auth_group.user_set.add(user)
         return user
 
 

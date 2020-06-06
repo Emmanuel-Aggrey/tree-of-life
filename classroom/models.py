@@ -1,8 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.html import escape, mark_safe
-from  tof_app.models import  BaseModel
 
+from tof_app.models import BaseModel
 
 
 class ChurchGroup(models.Model):
@@ -19,6 +19,8 @@ class User(AbstractUser,BaseModel):
     can_participate = models.BooleanField(default=True)
     
     group = models.ForeignKey(ChurchGroup,on_delete=models.DO_NOTHING,blank=True, null=True)
+
+    
 
 
 class Subject(models.Model):
