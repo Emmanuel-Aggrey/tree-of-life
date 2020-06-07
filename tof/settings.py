@@ -92,7 +92,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tof.wsgi.application'
 
-CSRF_COOKIE_SECURE =True
+# CSRF_COOKIE_SECURE =True
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -168,9 +168,9 @@ CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
 
 AUTH_USER_MODEL = 'classroom.User'
 
-LOGIN_URL = 'login'
+# LOGIN_URL = 'login'
 
-LOGOUT_URL = 'logout'
+# LOGOUT_URL = 'logout'
 
 LOGIN_REDIRECT_URL = 'classroom'
 
