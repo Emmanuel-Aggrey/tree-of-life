@@ -39,7 +39,7 @@ class QuizListView(ListView):
 
     def get_queryset(self):
         queryset = self.request.user.quizzes \
-            .select_related('subject') \
+            .select_related('owner') \
             .annotate(questions_count=Count('questions', distinct=True)) \
             .annotate(taken_count=Count('taken_quizzes', distinct=True))
         return queryset

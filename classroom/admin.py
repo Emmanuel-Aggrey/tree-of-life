@@ -63,7 +63,7 @@ admin.site.register(User, UserAdmin)
 # not woking find a way to fix it
 
 class QuizeAdmin(admin.ModelAdmin):
-    list_display = ['owner','name','every_one','active',]
+    list_display = ['owner','name','active',]
     search_fields =['name',]
     list_editable = ['active']
     list_filter=['active','date_updated',]
