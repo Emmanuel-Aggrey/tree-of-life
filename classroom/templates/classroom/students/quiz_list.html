@@ -7,7 +7,7 @@
       <thead>
         <tr>
           <th>Quiz</th>
-          <th>Subject</th>
+          {% comment %} <th>Subject</th> {% endcomment %}
           <th>Length</th>
           <th></th>
         </tr>
@@ -16,7 +16,7 @@
         {% for quiz in quizzes %}
           <tr>
             <td class="align-middle">{{ quiz.name }}</td>
-            <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
+            {% comment %} <td class="align-middle">{{ quiz.subject.get_html_badge }}</td> {% endcomment %}
             <td class="align-middle">{{ quiz.questions_count }} questions</td>
             <td class="text-right">
               <a href="{% url 'students:take_quiz' quiz.pk %}" class="btn btn-primary">Start quiz</a>
@@ -24,7 +24,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your any topic you'v choosen right now select all available.</td>
+            <td class="bg-light text-center font-italic" colspan="4">No quiz available at the moment.</td>
           </tr>
         {% endfor %}
       </tbody>
