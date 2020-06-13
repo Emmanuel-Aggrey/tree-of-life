@@ -18,8 +18,9 @@ class BaseModel(models.Model):
 
 class Article(BaseModel):
     title = models.CharField(max_length=500)
+    image_url = models.URLField(blank=True, null=True,help_text='input image url')
     image = models.ImageField(
-        upload_to='%d-%m-%Y/images')
+        upload_to='%d-%m-%Y/images',blank=True, null=True)
     story = RichTextField()
     active = models.BooleanField('make puplic',default=True,help_text='make this article pubic')
     added_by = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.DO_NOTHING,null=True,blank=True)

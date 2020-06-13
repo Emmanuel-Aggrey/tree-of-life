@@ -63,8 +63,7 @@
   <section class="ftco-section-2">
     <div class="container-fluid">
       <div class="section-2-blocks-wrapper d-flex row no-gutters ">
-        <div class="img col-md-6 ftco-animate " style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0CKzquarDM00IfzygqLqO7Uw84oSNDweCSUGS8X9dImOPpA5C&usqp=CAU
-);">
+        <div class="img col-md-6 ftco-animate " style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0CKzquarDM00IfzygqLqO7Uw84oSNDweCSUGS8X9dImOPpA5C&usqp=CAU);">
           <a href="https://youtu.be/TJLan-pJzfQ" class="button popup-vimeo"><span class="ion-ios-play"></span></a>
         </div>
         <div class="text col-md-6 ftco-animate">
@@ -75,14 +74,7 @@
               teaches the word of God and gives opportunity to persons who would like to teach the Word.
               It's a greate privilage Dad!! We appreciate that.
             </p>
-
-            <h3><b>Our Tradition</b></h3>
-            <p>
-
-              <h5 id="typer-text" style="font-style: italic;font-weight: bolder;" data-colors='red' class=""></h5>
-            </p>
-            <!-- <button class="btn">start</button> <button class="btn">stop</button> -->
-            <hr>
+          
           </div>
         </div>
       </div>
@@ -92,9 +84,13 @@
 
   <section class="ftco-section">
     <div class="container">
+      <h3><b>What Keeps us moving</b></h3>
+      <div style="height: 29px; overflow: hidden; margin-bottom: 5%;">
+        <iframe src="https://www.opendrive.com/player/Nl8xNzg5OTYwMDJfR3p2ZWI?folder_id=Nl8yNDI4NjYxMF9lbEE1NQ" frameborder="0"></iframe>
+      </div> 
       <div class="row justify-content-center mb-5 pb-5">
         <div class="col-md-6 text-center heading-section ftco-animate">
-
+         
           <h2 class="mb-4" style="color: #24304D;">UPCOMING EVENTS</h2>
          <div class="table-responsive">
           <table class="table">
@@ -270,7 +266,14 @@
           {% if latestArticle.image %}
           <div class="col-md-6 img d-flex justify-content-end align-items-center"
             style="background-image: url({{latestArticle.image.url}});">
-            <div {% endif %}
+            <div 
+              
+          {% elif latestArticle.image_url%}
+          <div class="col-md-6 img d-flex justify-content-end align-items-center"
+            style="background-image: url({{latestArticle.image_url}});">
+            <div 
+              
+            {% endif %}
               class="col-md-7 heading-section text-sm-center text-md-right heading-section-white ftco-animate mr-md-5 mt-md-5">
               <h2>{{latestArticle.title}}</h2>
               <p>

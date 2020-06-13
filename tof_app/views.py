@@ -64,6 +64,7 @@ class CreateArtcle(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.added_by = self.request.user
+        
         # form.instance.user_phone = self.request.user.userphone.phonenumber
 
         return super().form_valid(form)

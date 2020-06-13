@@ -11,7 +11,7 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['title', 'image', 'story', 'active', 'tags', 'source']
+        fields = ['title','image_url','image', 'story', 'active', 'tags', 'source']
 
 
 class EventForm(forms.ModelForm):

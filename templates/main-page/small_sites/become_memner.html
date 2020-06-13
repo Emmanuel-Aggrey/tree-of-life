@@ -83,24 +83,49 @@
                                     world is peripheral to the church. The church is Christ's body, in which He speaks
                                     and acts,
                                     by which He fills everything with His presence. We believe that the local church is
-                                    the hope of the world. Becoming a member of Oasis is not only about belonging to a
+                                    the hope of the world. Becoming a member of <b>Tree OF Life</b> is not only about
+                                    belonging to a
                                     church but discovering how you can make a difference in your world.
                                 </p>
 
                                 <p>
                                     <p><b> MEMBERSHIP</b> </p>
-                                    We have a two groups,Genesis & Revelation <span class="text-monospace text-info" id="why">(why groups)</span>
-                                    <small id="reason" class="text-justify"> to compete amoung ourselves in terms of Games,Quizzes etc.</small>
+                                    when you visit as our leader will ask if there is any new member and you will be
+                                    asked
+                                    to stand on your feet so as to know you by asking of your name and church you
+                                    current attend
+                                    then members will be asked to greate you.We have a common greeting in our local
+                                    language (Dangbe)
+                                    all members will greate you loudly saying <br>
+                                    <ul class="list-unstyled">
+                                        <li style="height: 29px; overflow: hidden;">
+                                            <iframe
+                                                src="https://www.opendrive.com/player/Nl8xNzg5OTU5NzVfMGJObDU?folder_id=Nl8yNDI4NjYxMF9lbEE1NQ"
+                                                frameborder="0" height="100"></iframe>
+                                        </li>
+                                        and you will respond
+                                        <li style="height: 29px; overflow: hidden;">
+                                            <iframe
+                                                src="https://www.opendrive.com/player/Nl8xNzg5OTU5NzRfVHA4M0Q?folder_id=Nl8yNDI4NjYxMF9lbEE1NQ#"
+                                                frameborder="0"></iframe>
+                                        </li>
+                                    </ul>
+                                    then we clap for you. <small style="font-style: italic;">LOVELY RIGHT</small> ? we
+                                    will be glad to have you as a member.
+                                    We have a two groups,Genesis & Revelation <span class="text-monospace text-info"
+                                        id="why">(why groups)</span>
+                                    <small id="reason" class="text-justify"> to compete amoung ourselves in terms of
+                                        Games,Quizzes etc.</small>
                                     you will be assigned to one after you
                                     register
                                     on this page and have become a member of this wonderful non denominational
                                     Fellowship
                                     I promise you, you will gladly be welcomed.
                                     {% if user.is_authenticated %}
-                                    <p>you are a member ({{user}})</p>
+                                    <p>you are already a member ({{user}})</p>
                                     {% else %}
-                                     <br> <span><b>register for free</b></span>
-                    
+                                    <br> <span><b>register for free</b></span>
+
 
                                     <ul class="mx-4">
                                         <li>
@@ -114,15 +139,17 @@
                                     </ul>
                                     <button id="whysignup" class="btn text-info">Why register ?</button> <br>
                                     {% endif %}
-                                   
-                                    <span id="member" class="text-muted u">to assign you a group as said above and also become part of our school
-                                        
+
+                                    <span id="member" class="text-muted u">to assign you a group as said above and also
+                                        become part of our school
+
                                     </span>
                                 </p>
                                 <small>
                                     We will be annoucing more about this as the time approaches. Meanwhile,
-                                    if you have any futher questions, please email <b>tof@gmail.com</b> or call
-                                </small>0244063416</b>.
+                                    if you have any futher questions, please email <b><a
+                                            href="mailto:tof@gmail.com">tof@gmail.com</a></b> or call
+                                </small><a href="tel:+233244063416">0244063416</a></b>.
 
 
                                 </p>
@@ -152,22 +179,26 @@
             background: linear-gradient(93deg, rgba(2, 0, 36, 1) 0%, rgba(171, 187, 149, 0.29735644257703087) 40%, rgba(0, 212, 255, 1) 100%);
         }
 
-       
+
 
         ul:hover {
             font-weight: bolder;
         }
 
-        #whysignup{
-            cursor: pointer;
-        }
-        #why{
+        #whysignup {
             cursor: pointer;
         }
 
-        #member,#reason {
+        #why {
+            cursor: pointer;
+        }
+
+        #member,
+        #reason {
             color: #000;
         }
+
+    
     </style>
 
     <script>
@@ -178,7 +209,7 @@
 
         $("#reason").fadeOut()
         $("#why").click(function () {
-        
+
             $('#reason').toggle()
         });
     </script>

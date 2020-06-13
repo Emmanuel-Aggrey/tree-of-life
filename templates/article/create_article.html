@@ -38,17 +38,17 @@
       <h3 class="text-center" style="font-weight: bolder;"> CREATE A NEW ARTICLE</h3>
 
       {% endif %}
-
-
+<code>      <p class="text-danger text-center"> NB: enter values for image or image url  not both</p>
+</code>
       <div class="row block-9">
 
 
         <div class="pr-md-5">
-          <form id="" class="dropzone" method="POST" enctype="multipart/form-data">
+          <form id="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form|crispy}}
 
-            <input type="submit" value="Post Article" class="btn btn-primary py-3 px-5">
+            <input id="submitform" type="submit" value="Post Article" class="btn btn-primary py-3 px-5">
 
           </form>
 
@@ -71,11 +71,12 @@
     }
     // document.body.innerHTML=document.body.innerHTML.replace('Needing','About')
     document.getElementById('save-your-spirit').remove()
+
+
+
   </script>
 
-
-  <script src="{% static 'js/dropzone.js' %}"></script>
-  <script src="{% static 'css/dropzone.css' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
 
   <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
   <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>

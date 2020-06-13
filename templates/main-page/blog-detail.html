@@ -62,13 +62,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 ftco-animate">
-          <h2 class="mb-3 "
-            style="font-weight: bolder;font-style: oblique ; color: red;">
+          <h2 class="mb-3 " style="font-weight: bolder;font-style: oblique ; color: red;">
             {{articles.title}}
             {% if articles.added_by == request.user %}
             <a class="icon-edit" href="{% url 'tof_app:updatearticle' articles.id %}"></a>
             {% endif %}
-          </h2> 
+          </h2>
 
           <div><span class="text-muted">By: {{articles.added_by}}</span></div>
           <div><span class="fa fa-clock-o text-muted">{{articles.date_updated|date:"DATE_FORMAT"}}</span></div>
@@ -76,15 +75,17 @@
           <p>
             {% if articles.image %}
             <img src="{{articles.image.url}}" alt="" class="img-fluid">
+            {% elif articles.image_url %}
+            <img src="{{articles.image_url}}" alt="" class="img-fluid">
 
             {% endif %}
           </p>
           <p>
             <!-- share -->
             <div class="">
-            <div class="text-muted">share</div>
+              <div class="text-muted">share</div>
               <div class="section-title">
-                 
+
                 <!-- <ul class="icons"> <i class="fa fa-facebook" aria-hidden="true"></i> -->
                 {% comment %} <small><i class="fa fa-share-square" aria-hidden="true"></i></small> {% endcomment %}
                 <li class="lishare"><a href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=%20' +
@@ -185,12 +186,14 @@
             <div class="block-21 mb-4 d-flex">
               {% if articles.image %}
               <a class="blog-img mr-4" style="background-image: url({{articles.image.url}});"></a>
+              {% elif articles.image_url %}
+              <a class="blog-img mr-4" style="background-image: url({{articles.image_url}});"></a>
 
               {% endif %}
               <div class="text">
                 <h3 class="heading"><a href="{{articles.get_absolute_url}}">{{articles.title}}</a></h3>
                 <div class="meta">
-                
+
                   <div><a href="#"><span class="fa fa-clock-o"></span>{{articles.date_updated}}</a></div>
                   <div><a href="#"><span class="fa fa-registered"></span> {{articles.added_by}}</a></div>
                   <div><a href="#"><span class="fa fa-eye"></span>{{articles.total_views}} </a></div>
