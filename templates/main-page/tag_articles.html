@@ -64,6 +64,10 @@
                         <a href="{{articles.get_absolute_url}}" class="block-20"
                             style="background-image: url({{articles.image.url}});">
                         </a>
+                        {% elif articles.image_url %}
+                         <a href="{{articles.get_absolute_url}}" class="block-20"
+                            style="background-image: url({{articles.image_url}});">
+                        </a>
                         {% endif %}
                         <div class="text p-4">
                             <div class="meta mb-3">
