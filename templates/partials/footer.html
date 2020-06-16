@@ -11,6 +11,7 @@
              meet to fellowship only on Sunday Evenings from 07:00 pm: 09:00 pm
              and mostly dominated by the youth
            </p>
+           <hr class="bg-light">
            <p class="text-muted">for suggestions about this website feel free to reach the developer
              <a class="d-lg-none" style="color:#00A751;" href="https://api.whatsapp.com/send?phone=+233240699506&text=hello {% if user.is_authenticated %}{{user}}:
                {% endif %}feel free to suggest that awsome idea to improve this site." target="_blank"
@@ -22,7 +23,7 @@
                whatsapp us<i class="fa fa-whatsapp" aria-hidden="true"></i> </a>
 
            </p>
-
+           <hr class="bg-light">
          </div>
          {% if user.is_leader %}
          <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:createarticle' %}">Create Article</a></div>

@@ -23,7 +23,7 @@
             <div class="col-6">
               <h1 class="logo">
                 <a href="{% url 'classroom' %}">
-                  <b>Tree Of Life Fellowship</b>
+                <small>Tree Of Life Fellowship</small>
                   {% if user.is_authenticated %}
                     {% if user.is_leader %}
                       <span class="icon-leaf" data-toggle="tooltip" data-placement="right" title="Leader profile"></span>
@@ -56,9 +56,12 @@
               {% block content %}
               {% endblock %}
             </div>
+            
           </div>
-          <span><a class="text-muted" href="{% url 'tof_app:home' %}">back to main  page</a></span>
-          <footer class="text-center">
+       
+          <span ><a  href="{% url 'tof_app:home' %}">back to main  page</a></span> <br> <br><hr class="bg-light">
+
+          <footer class="text-center" >
             tree of life fellowhip &copy; {% now "Y" %}
           </footer>
         </div>
