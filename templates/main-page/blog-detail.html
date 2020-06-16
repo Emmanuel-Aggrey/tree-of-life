@@ -62,8 +62,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 ftco-animate">
-          <h2 class="mb-3 " style="font-weight: bolder;font-style: oblique ; color: red;">
-            {{articles.title}}
+          <h2 class="mb-3 " style="font-weight: bolder;font-style: oblique ; color: rgb(31, 28, 28); font-weight: bolder;">
+            <b>{{articles.title}}</b>
             {% if articles.added_by == request.user %}
             <a class="icon-edit" href="{% url 'tof_app:updatearticle' articles.id %}"></a>
             {% endif %}
@@ -119,7 +119,7 @@
 
             <!-- end share -->
           </p>
-          <h2 class="mb-3 mt-5">{{articles.story|safe}}</h2>
+          <h4 class="mb-3 mt-5">{{articles.story|safe}}</h4>
 
           <img src="{% static 'images/image_8.jpg' %}" alt="" class="img-fluid">
           </p>

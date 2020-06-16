@@ -25,10 +25,19 @@
 
 
 <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/icomoon.css' %}"> -->
 <link rel="stylesheet" href="{% static 'css/mainstyle.css' %}">
 
-
+<!-- PushAlert -->
+<script type="text/javascript">
+    (function (d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = "https://cdn.pushalert.co/integrate_a4e2c03f6c3ef65865b763441f8f6f20.js";
+        s.parentNode.insertBefore(g, s);
+    }(document, "script"));
+</script>
+<!-- End PushAlert -->
 {% block head %}
 
 
@@ -38,7 +47,7 @@
 
         {% endblock title %}
     </title>
-
+    
 </head>
 {% endblock head %}
 
@@ -70,14 +79,12 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'js/aos.js' %}"></script>
-    <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-    <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
     <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
     <script src="{% static 'js/scrollax.min.js' %}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false">
-    </script>
-    <script src="{% static 'js/google-map.js' %}"></script>
+<!-- push alert -->
+    <!-- <script src="{% static 'js/manifest.json' %}"></script>
+    <script src="{% static 'js/sw.js' %}"></script> -->
+
     <script src="{% static 'js/main.js' %}"></script>
 
 

@@ -18,9 +18,9 @@ class BaseModel(models.Model):
 
 class Article(BaseModel):
     title = models.CharField(max_length=500)
-    image_url = models.URLField(blank=True, null=True,help_text='input image url')
+    image_url = models.URLField(blank=True, null=True,help_text='input image link from the net instead of raw image')
     image = models.ImageField(
-        upload_to='%d-%m-%Y/images',blank=True, null=True)
+        upload_to='%d-%m-%Y/images',blank=True, null=True,help_text='select an image')
     story = RichTextField()
     active = models.BooleanField('make puplic',default=True,help_text='make this article pubic')
     added_by = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.DO_NOTHING,null=True,blank=True)
@@ -75,10 +75,9 @@ class AcceptChrist(BaseModel):
 class PrayerRequest(BaseModel):
     r_type = [
         ['Prayer Request', 'Prayer Request'],
-        ['General', 'General'],
+      
         # ['Volunteer', 'Volunteer'],
         ['Testimonies', 'Testimonies'],
-        ['Suggestions', 'Suggestions'],
         # ['Webmaster', 'Webmaster'],
     ]
     request_type = models.CharField(

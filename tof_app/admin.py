@@ -10,6 +10,8 @@ admin.site.index_title='WELCOME TO TREE OF LIFE ADMIN PORTAL'
 class ArticleAdmin(admin.ModelAdmin):
 
     list_display = ['title', 'active', 'total_views', ]
+    list_filter = ['active',]
+    
     # prepopulated_fields = {"slug": ("title",)}
 
     fieldsets = (
@@ -51,5 +53,5 @@ class EventsAdmin(admin.ModelAdmin):
     list_editable = ['active']
     list_filter = ['date_updated','date_add','active']
     search_fields = ['name']
-
+    
 admin.site.register(Event,EventsAdmin)

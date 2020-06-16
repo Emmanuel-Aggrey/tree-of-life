@@ -1,51 +1,65 @@
  {% load static %}
-<footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="logo"><i class="flaticon-cross text-success"><a href="{% url 'tof_app:home' %}"></i><span class="">Tree </span><span>Of Life</span></a></h2>
-              <p>
-               Tree Of Life is a non Denominational Christ Fellowship program that we
-                  meet to fellowship only on Sunday Evenings from 07:00 pm: 09:00 pm
-                  and mostly dominated by the youth</p>
-            </div>
-          {% if user.is_leader %}
-                      <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:createarticle' %}">Create Article</a></div>
-                                            <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:create-event' %}">Create Event/Anoucement</a></div>
+ <footer class="ftco-footer ftco-bg-dark ftco-section">
+   <div class="container">
+     <div class="row mb-5">
+       <div class="col-md">
+         <div class="ftco-footer-widget mb-4">
+           <h2 class="logo"><i class="flaticon-cross text-success"><a href="{% url 'tof_app:home' %}"></i><span
+               class="">Tree </span><span>Of Life</span></a></h2>
+           <p>
+             Tree Of Life is a non Denominational Christ Fellowship program that we
+             meet to fellowship only on Sunday Evenings from 07:00 pm: 09:00 pm
+             and mostly dominated by the youth
+           </p>
+           <p class="text-muted">for suggestions about this website feel free to reach the developer
+             <a class="d-lg-none" style="color:#00A751;" href="https://api.whatsapp.com/send?phone=+233240699506&text=hello {% if user.is_authenticated %}{{user}}:
+               {% endif %}feel free to suggest that awsome idea to improve this site." target="_blank"
+               rel="noopener noreferrer"> whatsapp us <i class="fa fa-whatsapp" aria-hidden="true"></i>
+             </a>
+             <a class="d-none d-lg-block" style="color:#00A751;"
+               href="https://web.whatsapp.com/send?phone=+233240699506&text=hello {% if user.is_authenticated %}{{user}}: {% endif %}feel free to suggest that awsome idea to improve this site."
+               target="_blank" rel="noopener noreferrer">
+               whatsapp us<i class="fa fa-whatsapp" aria-hidden="true"></i> </a>
 
-                      <hr class="bg-white">
-          {% endif %}
-          </div>
+           </p>
 
-          
-         
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="fa fa-map-marker"></span><span class="text">Mobole Afienya Dodowa Road</span></li>
-	                <li><a href="#"><span class="fa fa-phone"></span><span class="text">+233243118088</span></a></li>
-	                <li><a href="#"><span class="fa fa-envelope"></span><span class="text">info@tof.com</span></a></li>
-	                <li><span class="fa fa-clock"></span><span class="text">Sundays &mdash; 7:00pm - 9:00 pm</span></li>
-	              </ul>
-	            </div>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-          
-                
-                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
+         </div>
+         {% if user.is_leader %}
+         <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:createarticle' %}">Create Article</a></div>
+         <div><a class="text-danger my-4 mx-4" href="{% url 'tof_app:create-event' %}">Create Event/Anoucement</a></div>
 
-  Copyright &copy; {% now "Y" %} 
-</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+         <hr class="bg-white">
+         {% endif %}
+       </div>
+
+
+
+       <div class="col-md">
+         <div class="ftco-footer-widget mb-4">
+           <div class="block-23 mb-3">
+             <ul>
+               <li><span class="fa fa-map-marker"></span><span class="text">Mobole Afienya Dodowa Road</span></li>
+               <li><a href="#"><span class="fa fa-phone"></span><span class="text">+233243118088</span></a></li>
+               <li><a href="#"><span class="fa fa-envelope"></span><span class="text">info@tof.com</span></a></li>
+               <li><span class="fa fa-clock"></span><span class="text">Sundays &mdash; 7:00pm - 9:00 pm</span></li>
+             </ul>
+           </div>
+           <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+
+
+             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+             <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+             <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-12 text-center">
+
+         Copyright &copy; {% now "Y" %}
+         </p>
+       </div>
+     </div>
+   </div>
+ </footer>
