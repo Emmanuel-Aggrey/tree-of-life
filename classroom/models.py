@@ -41,7 +41,7 @@ class Quiz(BaseModel):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quizzes')
     name = models.CharField(max_length=255)
     # subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='quizzes',verbose_name='topic',blank=True, null=True)
-    # every_one = models.BooleanField('participant',default=True)
+    every_one = models.BooleanField('participant',default=True)
     active = models.BooleanField(default=True,help_text='make this quize public now')
 
     def __str__(self):
